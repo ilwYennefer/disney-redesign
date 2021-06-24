@@ -6,9 +6,9 @@ import requests from "../utils/requests";
 function PopularResults({ popularResults }) {
   const router = useRouter();
 
-  Object.entries(requests.fetchPopular.url).map(([key, { tv, movies }]) =>
-    console.log(key)
-  );
+  Object.entries(requests.fetchPopular.url).map(([key, { tv, movies }]) => {
+    return;
+  });
 
   return (
     <div>

@@ -4,6 +4,8 @@ import Home from "../components/Home";
 import requests from "../utils/requests";
 
 export default function App({ popularResults, trendingResults }) {
+  // console.log(requests.fetchPopular.url[type]?.url);
+
   return (
     <div className="">
       <Head>
@@ -25,9 +27,13 @@ export default function App({ popularResults, trendingResults }) {
 }
 
 export async function getServerSideProps(context) {
-  const genre = context.query.genre;
+  const type = context.query.type;
   const [popularRes, trendingRes] = await Promise.all([
-    fetch(`https://api.themoviedb.org/3${requests.fetchPopular.url.tv}`),
+    fetch(
+      `https://api.themoviedb.org/3${
+        requests.fetchPopular.url[type]?.url || requests.fetchPopular.url.tv.url
+      }`
+    ),
     fetch(`https://api.themoviedb.org/3${requests.fetchTrending.url}`),
   ]);
 
