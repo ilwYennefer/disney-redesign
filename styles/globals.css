@@ -1,16 +1,32 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* @apply overflow-hidden; */
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+  .link {
+    @apply relative text-xs lg:text-sm tracking-wider font-medium after:h-0.5 after:bg-white after:absolute after:left-0 after:right-0 after:-bottom-1.5 after:opacity-0 after:transform after:scale-x-0 group-hover:after:scale-x-100 group-hover:after:opacity-100 after:duration-250 after:ease-link-transition after:origin-left-center;
+  }
 
-* {
-  box-sizing: border-box;
+  .carousel > div {
+    overflow: visible !important;
+  }
+
+  .carousel > div > div {
+    overflow: visible !important;
+  }
+
+  .carousel .slide > div > img {
+    border: 4px solid transparent;
+  }
+
+  .carousel .slide > div:hover > img {
+    border-color: rgba(249, 249, 249, 0.8);
+    transition-duration: 300ms;
+  }
 }
